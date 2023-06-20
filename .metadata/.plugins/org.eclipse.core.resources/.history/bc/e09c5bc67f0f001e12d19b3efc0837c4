@@ -1,0 +1,48 @@
+import java.awt.*;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class board extends JPanel implements ActionListener{
+	//declare all dimension of the board
+	private final int B_WIDTH=300;
+	private final int B_HEIGHT=300;
+	private final int DOT_SIZE=10;
+	private final int ALL_DOTS=900;
+
+	
+	//Declare position of each dots
+	
+	private final int x[]= new int[ALL_DOTS];
+	private final int y[]= new int[ALL_DOTS];
+	
+	//declare snake size and apple position
+	public int dots;
+	private int apple_x;
+	private int apple_y;
+	
+	public Board() {
+		initBoard();
+	}
+
+	private void initBoard() {
+		initGame();
+		
+	}
+
+	//initialize game
+	private void initGame() {
+		dots=3;
+		for(int i=0;i<dots;i++) {
+			x[i]=50-i*10;
+			y[i]=50;
+		}
+		
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		doDrawing(g);
+	}
+}
